@@ -1,0 +1,119 @@
+﻿/* ============================================================
+   BASE.CSS — Design system: variables, reset, tipografía
+   MICRO AUTOMACIÓN — v2.0
+   ============================================================ */
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  /* Marca */
+  --brand:          #2563EB;
+  --brand-dark:     #1D4ED8;
+  --brand-hover:    #1E40AF;
+  --brand-subtle:   #EFF6FF;
+  --brand-muted:    #BFDBFE;
+
+  /* Grises / Slate */
+  --bg:             #F1F5F9;
+  --surface:        #FFFFFF;
+  --surface-raised: #FAFBFC;
+  --border:         #E2E8F0;
+  --border-subtle:  #F1F5F9;
+  --border-strong:  #CBD5E1;
+  --divider:        #E2E8F0;
+
+  /* Sidebar */
+  --sidebar-bg:     #0F172A;
+  --sidebar-surface:#1E293B;
+  --sidebar-hover:  rgba(255,255,255,0.06);
+  --sidebar-active-bg: rgba(37,99,235,0.15);
+  --sidebar-active-border: #2563EB;
+  --sidebar-text:   rgba(255,255,255,0.65);
+  --sidebar-text-active: #FFFFFF;
+  --sidebar-label:  rgba(255,255,255,0.28);
+
+  /* Texto */
+  --text:           #0F172A;
+  --text-secondary: #475569;
+  --text-muted:     #94A3B8;
+  --text-placeholder: #CBD5E1;
+
+  /* Estados */
+  --ok:             #059669;
+  --ok-bg:          #ECFDF5;
+  --ok-border:      #6EE7B7;
+  --warn:           #D97706;
+  --warn-bg:        #FFFBEB;
+  --warn-border:    #FCD34D;
+  --danger:         #DC2626;
+  --danger-bg:      #FEF2F2;
+  --danger-border:  #FCA5A5;
+  --info:           #2563EB;
+  --info-bg:        #EFF6FF;
+  --info-border:    #BFDBFE;
+
+  /* Layout */
+  --sidebar-w:      232px;
+  --header-h:       52px;
+  --radius:         6px;
+  --radius-sm:      4px;
+  --radius-lg:      10px;
+
+  /* Sombras */
+  --shadow-xs:      0 1px 2px 0 rgba(0,0,0,0.05);
+  --shadow-sm:      0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1);
+  --shadow-md:      0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-lg:      0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+
+  /* Tipografía */
+  --font:           "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono:      "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+  --font-size-xs:   11px;
+  --font-size-sm:   12.5px;
+  --font-size-base: 13.5px;
+  --font-size-md:   15px;
+  --line-height:    1.55;
+}
+
+/* ── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; height: auto; display: block; }
+button { cursor: pointer; font-family: inherit; line-height: inherit; }
+input, select, textarea { font-family: inherit; font-size: inherit; color: inherit; }
+ul, ol { list-style: none; }
+
+/* ── Código inline ──────────────────────────────────────────── */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--bg);
+  color: var(--brand-dark);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Números tabulares (métricas) ───────────────────────────── */
+.tabular { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+
+/* ── Google Fonts ──────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');

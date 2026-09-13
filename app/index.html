@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MICRO — Gestión de Pañol y Setups</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ══════════════════════════════════════════════════════════
+       SIDEBAR
+  ══════════════════════════════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <!-- Logo (visible cuando expandido) -->
+    <div class="sidebar-brand">
+      <img src="assets/logo.jpg" alt="MICRO" class="sidebar-logo">
+      <div class="sidebar-brand-text">
+        <span class="sidebar-brand-name">MICRO automación</span>
+        <span class="sidebar-brand-sub">Gestión de Pañol y Setups</span>
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <div class="sidebar-nav">
+
+      <div class="sidebar-section-label">General</div>
+
+      <a href="javascript:void(0)" class="nav-link" data-route="/" data-label="Dashboard"
+         onclick="Router.navigate('/')">
+        <span class="nav-icon"><i data-lucide="layout-dashboard"></i></span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-section-label">Módulos</div>
+
+      <a href="javascript:void(0)" class="nav-link" data-route="/stock" data-label="Stock"
+         onclick="Router.navigate('/stock')">
+        <span class="nav-icon"><i data-lucide="package"></i></span>
+        <span class="nav-label">Stock — Insertos y Herr.</span>
+      </a>
+
+      <a href="javascript:void(0)" class="nav-link nav-sub-link" data-route="/historial" data-label="Historial"
+         onclick="Router.navigate('/historial')">
+        <span class="nav-icon"><i data-lucide="list"></i></span>
+        <span class="nav-label">Historial de movimientos</span>
+      </a>
+
+      <a href="javascript:void(0)" class="nav-link nav-sub-link" data-route="/movimiento" data-label="Registrar movimiento"
+         onclick="Router.navigate('/movimiento')">
+        <span class="nav-icon"><i data-lucide="plus-circle"></i></span>
+        <span class="nav-label">Registrar movimiento</span>
+      </a>
+
+      <a href="javascript:void(0)" class="nav-link" data-route="/accesorios" data-label="Accesorios"
+         onclick="Router.navigate('/accesorios')">
+        <span class="nav-icon"><i data-lucide="wrench"></i></span>
+        <span class="nav-label">Accesorios de Sujeción</span>
+      </a>
+
+      <a href="javascript:void(0)" class="nav-link" data-route="/setups" data-label="Setup de Máquinas"
+         onclick="Router.navigate('/setups')">
+        <span class="nav-icon"><i data-lucide="cpu"></i></span>
+        <span class="nav-label">Setup de Máquinas</span>
+      </a>
+
+      <a href="javascript:void(0)" class="nav-link" data-route="/fichas" data-label="Fichas Técnicas"
+         onclick="Router.navigate('/fichas')">
+        <span class="nav-icon"><i data-lucide="file-text"></i></span>
+        <span class="nav-label">Fichas Técnicas</span>
+      </a>
+
+    </div><!-- .sidebar-nav -->
+
+    <!-- Footer -->
+    <div class="sidebar-footer">
+      <div class="demo-badge">Demo</div>
+      <div style="margin-top:3px;opacity:0.5;font-size:10px">v1.0 — 2026</div>
+    </div>
+
+  </aside><!-- .sidebar -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       COLUMNA PRINCIPAL
+  ══════════════════════════════════════════════════════════ -->
+  <div class="main-column">
+
+    <!-- ── Header ── -->
+    <header class="header sidebar-expanded" id="main-header">
+
+      <!-- Botón toggle + logo mini (en collapsed) -->
+      <button class="sidebar-toggle" id="sidebar-toggle" title="Colapsar menú">
+        <span class="toggle-label">
+          <img src="assets/logo.jpg" alt="MICRO" style="width:26px;height:26px;border-radius:4px;object-fit:cover;outline:1px solid var(--border)">
+          <span style="font-weight:700;font-size:13px;color:var(--text);letter-spacing:-0.01em">MICRO</span>
+        </span>
+        <i data-lucide="panel-left-close" id="toggle-icon"></i>
+      </button>
+
+      <!-- Breadcrumb / título de sección actual -->
+      <div class="header-center">
+        <div class="header-breadcrumb">
+          <span style="opacity:0.5;font-size:12px">Sistema de Gestión</span>
+          <span class="crumb-sep">/</span>
+          <span class="crumb-current" id="header-section">Dashboard</span>
+        </div>
+      </div>
+
+      <!-- Derecha -->
+      <div class="header-right">
+        <span class="header-system-badge">Demo</span>
+        <div id="header-datetime" class="header-datetime"></div>
+      </div>
+
+    </header><!-- .header -->
+
+    <!-- ── Contenido principal ── -->
+    <main class="main-content">
+      <div id="app">
+        <div class="page-wrapper" style="text-align:center;padding-top:80px;color:var(--text-muted)">
+          Cargando…
+        </div>
+      </div>
+    </main>
+
+  </div><!-- .main-column -->
+
+</div><!-- .app-shell -->
+
+<div id="toast-container"></div>
+
+<!-- ════════════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════════════ -->
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/router.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/stock.js"></script>
+<script src="js/accesorios.js"></script>
+<script src="js/setups.js"></script>
+<script src="js/fichas.js"></script>
+
+<script>
+  /* ── Sidebar toggle ────────────────────────────────────────── */
+  const sidebar      = document.getElementById("sidebar");
+  const header       = document.getElementById("main-header");
+  const toggleBtn    = document.getElementById("sidebar-toggle");
+  const toggleIcon   = document.getElementById("toggle-icon");
+  let sidebarOpen    = true;
+
+  function setSidebar(open, animate) {
+    sidebarOpen = open;
+    if (open) {
+      sidebar.classList.remove("collapsed");
+      header.classList.remove("sidebar-collapsed");
+      header.classList.add("sidebar-expanded");
+      toggleIcon.setAttribute("data-lucide", "panel-left-close");
+    } else {
+      sidebar.classList.add("collapsed");
+      header.classList.remove("sidebar-expanded");
+      header.classList.add("sidebar-collapsed");
+      toggleIcon.setAttribute("data-lucide", "panel-left-open");
+    }
+    lucide.createIcons({ el: toggleBtn });
+    try { localStorage.setItem("sidebar-open", open ? "1" : "0"); } catch(e){}
+  }
+
+  toggleBtn.addEventListener("click", () => setSidebar(!sidebarOpen));
+
+  // Restaurar estado guardado
+  try {
+    const saved = localStorage.getItem("sidebar-open");
+    if (saved === "0") setSidebar(false);
+  } catch(e){}
+
+  /* ── Actualizar breadcrumb en header ───────────────────────── */
+  const routeLabels = {
+    "/":           "Dashboard",
+    "/stock":      "Stock — Insertos y Herramientas",
+    "/historial":  "Historial de Movimientos",
+    "/movimiento": "Registrar Movimiento",
+    "/accesorios": "Accesorios de Sujeción",
+    "/setups":     "Setup de Máquinas",
+    "/fichas":     "Fichas Técnicas",
+  };
+  function updateHeaderSection() {
+    const hash = window.location.hash.replace(/^#/, "").split("?")[0] || "/";
+    const el = document.getElementById("header-section");
+    if (!el) return;
+    let label = routeLabels[hash];
+    if (!label) {
+      for (const [k, v] of Object.entries(routeLabels)) {
+        if (k !== "/" && hash.startsWith(k)) { label = v; break; }
+      }
+    }
+    if (label) el.textContent = label;
+  }
+  window.addEventListener("hashchange", updateHeaderSection);
+
+  /* ── Rutas ─────────────────────────────────────────────────── */
+  Router.register("/",               renderDashboard);
+  Router.register("/stock",          renderStock);
+  Router.register("/historial",      renderHistorial);
+  Router.register("/movimiento",     function() {
+    const hash = window.location.hash;
+    const match = hash.match(/\?codigo=([^&]+)/);
+    renderMovimiento(match ? decodeURIComponent(match[1]) : null);
+  });
+  Router.register("/stock/:id",      renderStockDetalle);
+  Router.register("/accesorios",     renderAccesorios);
+  Router.register("/accesorios/:id", renderAccesorioDetalle);
+  Router.register("/setups",         renderSetups);
+  Router.register("/setups/nuevo",   renderNuevoSetup);
+  Router.register("/setups/:id",     renderSetupDetalle);
+  Router.register("/fichas",         renderFichas);
+  Router.register("/fichas/:id",     renderFichaDetalle);
+
+  /* ── Iniciar ────────────────────────────────────────────────── */
+  Utils.startClock();
+  Router.init();
+  lucide.createIcons();
+  updateHeaderSection();
+</script>
+
+</body>
+</html>
